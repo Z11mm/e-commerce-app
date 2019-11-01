@@ -18,6 +18,12 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "no-tabs": ["error", { allowIndentationTabs: true }]
+        "no-tabs": ["error", { allowIndentationTabs: true }],
+        "object-curly-newline": ["error", {
+          "ObjectExpression": "always",
+          "ObjectPattern": { "multiline": true },
+          "ImportDeclaration": "never",
+          "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }]
     }
 };

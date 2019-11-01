@@ -1,15 +1,19 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/homepage/Homepage';
-import ShopPage from './pages/shop/Shop';
+import ShopPage from './pages/shop/ShopPage';
+import Header from './components/header/Header';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/shop" component={ShopPage} />
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+      </Switch>
     </div>
   );
 }
