@@ -7,17 +7,15 @@ import Header from './components/header/Header';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/SignInAndSignUp';
 import './App.css';
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/signin" component={SignInAndSignUpPage} />
-      </Switch>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/shop" component={ShopPage} />
+      <Route path="/signin" component={SignInAndSignUpPage} />
+    </Switch>
+  </div>
+);
 
 export default App;
