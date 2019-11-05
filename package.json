@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^7.2.3",
     "node-sass": "^4.13.0",
     "package": "^1.0.1",
     "prop-types": "^15.7.2",
