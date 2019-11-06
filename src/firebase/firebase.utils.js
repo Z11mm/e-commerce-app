@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -12,6 +13,13 @@ const firebaseConfig = {
   messagingSenderId: '3520233633',
   appId: '1:3520233633:web:d0408b1a8703f85c1bf0e0',
 };
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) {
+    return;
+  }
+
+}
 
 firebase.initializeApp(firebaseConfig);
 
