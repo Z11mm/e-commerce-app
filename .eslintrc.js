@@ -15,7 +15,8 @@ module.exports = {
       "sourceType": "module"
   },
   "plugins": [
-      "react"
+      "react",
+      "@babel/plugin-proposal-export-default-from"
   ],
   "rules": {
     "object-curly-newline": ["error", {

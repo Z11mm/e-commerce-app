@@ -57,3 +57,5 @@ class Directory extends React.Component {
     )
   }
 }
+
+export default Directory;

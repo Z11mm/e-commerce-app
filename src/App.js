@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import HomePage from './pages/homepage/Homepage';
-import ShopPage from './pages/shop/ShopPage';
+import HomePage from './components/pages/homepage/Homepage';
+import ShopPage from './components/pages/shop/ShopPage';
 import Header from './components/header/Header';
-import SignInAndSignUpPage from './pages/sign-in-and-sign-up/SignInAndSignUp';
+import SignInAndSignUpPage from './components/pages/sign-in-and-sign-up/SignInAndSignUp';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import './App.css';
 

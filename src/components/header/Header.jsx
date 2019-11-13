@@ -30,3 +30,5 @@ const Header = ({ currentUser }) => (
     </div>
   </div>
 );
+
+export default Header;

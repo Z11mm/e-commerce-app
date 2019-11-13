@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './menu-item.styles.scss';
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
@@ -23,12 +23,12 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
   </div>
 );
 
-MenuItem.propTypes = {
-  title: PropTypes.string,
-};
+// MenuItem.propTypes = {
+//   title: PropTypes.string,
+// };
 
-MenuItem.defaultProps = {
-  title: 'Hats',
-};
+// MenuItem.defaultProps = {
+//   title: 'Hats',
+// };
 
 export default withRouter(MenuItem);
