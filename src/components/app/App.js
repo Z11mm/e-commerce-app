@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
@@ -9,21 +10,21 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import './App.css';
 
 class App extends React.Component {
+  unsubscribeFromAuth = null;
+
   constructor() {
     super();
 
     this.state = {
-      currentUser: null,
+      currentUser: null
     };
   }
-
-  unsubscribeFromAuth = null;
 
   componentDidMount = () => {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot(snapShot => {
+        userRef.onSnapshot((snapShot) => {
           this.setState({
             currentUser: {
               id: snapShot.id,

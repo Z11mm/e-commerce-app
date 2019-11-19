@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,7 +11,7 @@ ReactDOM.render(
   <Provider>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
-  </Provider>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
