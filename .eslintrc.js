@@ -51,6 +51,9 @@ module.exports = {
         requireReturnDescription: true,
       },
     ],
+    "jsx-a11y/aria-role": [ 2, {
+      "ignoreNonDOM": true
+    }],
   },
   globals: {
     window: true,
