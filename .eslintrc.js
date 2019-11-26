@@ -3,7 +3,10 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "airbnb",
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -16,9 +19,11 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "rules": {
+      "prettier/prettier": ["error"],
       'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 1,
     'no-underscore-dangle': 0,
