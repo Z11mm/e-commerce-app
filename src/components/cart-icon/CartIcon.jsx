@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -23,5 +24,13 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = createStructuredSelector({
   itemCount: selectCartItemsCount
 });
+
+CartIcon.propTypes = {
+  itemCount: PropTypes.number
+};
+
+CartIcon.defaultProps = {
+  itemCount: 0
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
