@@ -7,6 +7,11 @@ export const selectShopPageCollections = createSelector(
   shoppage => shoppage.collections
 );
 
+export const selectCollectionsForPreview = createSelector(
+  [selectShopPageCollections],
+  collections => Object.keys(collections).map(key => collections[key])
+);
+
 export const selectCollection = collectionUrlParam =>
   createSelector(
     [selectShopPageCollections],
