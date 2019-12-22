@@ -5,6 +5,7 @@ import { createStructuredSelector } from "reselect";
 
 import CheckoutItem from "../../checkout-item/CheckoutItem";
 import StripeCheckoutButton from "../../stripe/StripeButton";
+
 import {
   selectCartItems,
   selectCartTotal
