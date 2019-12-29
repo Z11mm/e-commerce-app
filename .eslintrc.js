@@ -69,5 +69,6 @@ module.exports = {
     Blob: true,
     navigator: true,
   },
-  parser: 'babel-eslint'
+  parser: 'babel-eslint',
+  "react/state-in-constructor": ["enabled", "never"]
 };
