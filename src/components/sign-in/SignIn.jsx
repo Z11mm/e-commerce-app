@@ -1,8 +1,15 @@
 import React from 'react';
+import { connect } from "react-redux";
+
 import FormInput from '../form-input/FormInput';
 import CustomButton from '../custom-button/CustomButton';
+
+import { googleSignInStart } from "../../redux/user/user.actions";
+
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+
 import './sign-in.styles.scss';
+import { onGoogleSignInStart } from '../../redux/user/user.sagas';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -38,6 +45,7 @@ class SignIn extends React.Component {
   }
 
   render() {
+    const { googleSignInStart } = this.props;
     const { email, password } = this.state;
     return (
       <div className="sign-in">
@@ -65,7 +73,7 @@ class SignIn extends React.Component {
 
           <div className="buttons">
             <CustomButton type="submit">sign in</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
               sign in with Google
             </CustomButton>
           </div>
@@ -75,4 +83,8 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = dispatch => ({
+  googleSignInStart: () => dispatch(googleSignInStart())
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);
