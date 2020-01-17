@@ -12,8 +12,6 @@ import ShopPage from "../pages/shop/ShopPage";
 import SignInAndSignUpPage from "../pages/sign-in-and-sign-up/SignInAndSignUp";
 import CheckoutPage from "../pages/checkout/CheckoutPage";
 
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-
 import { setCurrentUser } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
