@@ -68,7 +68,7 @@ export function* onCheckUserSession() {
 export function* signOut() {
   try {
     yield auth.signOut();
-    yield put(signInSuccess());
+    yield put(signOutSuccess());
   } catch (error) {
     yield put(signOutFailure(error)); 
   }
