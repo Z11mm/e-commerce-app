@@ -10,8 +10,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.listen(port, error => {
   if (error) throw error;
-  console.log("Server running on" + port);
+  console.log("Server running on " + port);
 });
 
 app.post("/payment", (req, res) => {
