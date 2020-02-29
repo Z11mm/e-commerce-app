@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../../redux/shop/shop.actions";
 
+import ErrorBoundary from '../../error-boundary/ErrorBoundary'
+
 const CollectionOverviewContainer = lazy(() =>
   import("../../collection-overview/CollectionOverviewContainer")
 );
@@ -18,17 +20,19 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
 
   return (
     <div className="shop-page">
-      <Suspense>
-        <Route
-          exact
-          path={`${match.path}`}
-          component={CollectionOverviewContainer}
-        />
-        <Route
-          path={`${match.path}/:collectionId`}
-          component={CollectionPageContainer}
-        />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense>
+          <Route
+            exact
+            path={`${match.path}`}
+            component={CollectionOverviewContainer}
+          />
+          <Route
+            path={`${match.path}/:collectionId`}
+            component={CollectionPageContainer}
+          />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };
