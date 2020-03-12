@@ -8,7 +8,7 @@ import { createStructuredSelector } from "reselect";
 
 import Header from "../header/Header";
 import Spinner from "../spinner/Spinner";
-import ErrorBoundary from '../error-boundary/ErrorBoundary'
+import ErrorBoundary from "../error-boundary/ErrorBoundary";
 
 import { checkUserSession } from "../../redux/user/user.actions";
 
@@ -16,6 +16,9 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { GlobalStyle } from "../../GlobalStyles";
 
+const ProductDetails = lazy(() =>
+  import("../pages/product-details/ProductDetails")
+);
 const HomePage = lazy(() => import("../pages/homepage/Homepage"));
 const ShopPage = lazy(() => import("../pages/shop/ShopPage"));
 const CheckoutPage = lazy(() => import("../pages/checkout/CheckoutPage"));
@@ -38,6 +41,7 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
+            <Route path="/details" component={ProductDetails} />
             <Route exact path="/signin">
               {currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />}
             </Route>
