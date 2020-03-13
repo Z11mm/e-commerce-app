@@ -45,7 +45,7 @@ export const AddButton = styled(CustomButton)`
   }
 `;
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled(Link)`
   width: 100%;
   height: 95%;
   background-size: cover;
