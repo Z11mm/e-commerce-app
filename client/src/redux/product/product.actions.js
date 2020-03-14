@@ -1,16 +1,16 @@
-import * as types from "./product.types";
+import ProductActionTypes from "./product.types";
 
 export const getProductStart = (id) => ({
-  type: types.GET_PRODUCT_START
+  type: ProductActionTypes.GET_PRODUCT_START
 });
 
 export const getProductSuccess = product => ({
-  type: types.GET_PRODUCT_SUCCESS,
+  type: ProductActionTypes.GET_PRODUCT_SUCCESS,
   payload: product
 });
 
-export const getProductFailure = errorMessage => ({
-  type: types.GET_PRODUCT_FAILURE,
+export const getProductFailure = error => ({
+  type: ProductActionTypes.GET_PRODUCT_FAILURE,
   payload: error.message
 });
 

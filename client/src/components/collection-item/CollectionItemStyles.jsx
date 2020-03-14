@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import CustomButton from '../custom-button/CustomButton';
+import styled from "styled-components";
+import CustomButton from "../custom-button/CustomButton";
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -36,7 +36,7 @@ export const AddButton = styled(CustomButton)`
   position: absolute;
   top: 255px;
   display: none;
-  
+
   @media screen and (max-width: 800px) {
     display: block;
     opacity: 0.9;
@@ -45,7 +45,7 @@ export const AddButton = styled(CustomButton)`
   }
 `;
 
-export const BackgroundImage = styled(Link)`
+export const BackgroundImage = styled.div`
   width: 100%;
   height: 95%;
   background-size: cover;

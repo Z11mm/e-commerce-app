@@ -5,11 +5,11 @@ import {
   getProductFailure
 } from "../product/product.actions";
 
-import * as types from '../product/product.types'
+import ProductActionTypes from '../product/product.types'
 
 import {
   firestore,
-  convertProductsSnapshotToMap
+  convertProductSnapshotToMap
 } from "../../firebase/firebase.utils";
 
 export function* fetchProductAsync(id) {
@@ -17,7 +17,7 @@ export function* fetchProductAsync(id) {
     const collectionRef = firestore.collection('collections').doc();
     const snapshot = yield collectionRef.get();
     const collectionsMap = yield call(
-      convertProductsSnapshotToMap,
+      convertProductSnapshotToMap,
       snapshot
     );
     yield put(getProductSuccess(collectionsMap));
@@ -28,7 +28,7 @@ export function* fetchProductAsync(id) {
 
 export function* fetchProductStart() {
   yield takeLatest(
-    types.GET_PRODUCT_START,
+    ProductActionTypes.GET_PRODUCT_START,
     fetchProductAsync
   );
 }
