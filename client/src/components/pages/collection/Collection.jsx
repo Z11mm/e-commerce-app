@@ -13,12 +13,13 @@ import "./collection.styles.scss";
 
 const CollectionPage = ({ collection, match }) => {
   const { title, items } = collection;
-  console.log(items);
+  const products = Object.keys(items).map(key => items[key]);
+  
   return (
     <div className="collection-page">
       <h2 className="title">{title}</h2>
       <div className="items">
-        {items.map(item => (
+        {products.map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </div>

@@ -16,8 +16,6 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { GlobalStyle } from "../../GlobalStyles";
 
-
-
 const ProductDetails = lazy(() =>
   import("../pages/product-details/ProductDetails")
 );
@@ -31,10 +29,10 @@ const SignInAndSignUpPage = lazy(() =>
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
-  //   addCollectionAndDocuments(
-  //     "collections",
-  //     SHOP_DATA.map(({ title, items }) => ({ title, items }))
-  //   );
+    //   addCollectionAndDocuments(
+    //     "collections",
+    //     SHOP_DATA.map(({ title, items }) => ({ title, items }))
+    //   );
   }, [checkUserSession]);
 
   return (
