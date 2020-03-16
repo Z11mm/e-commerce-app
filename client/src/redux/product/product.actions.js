@@ -1,7 +1,8 @@
 import ProductActionTypes from "./product.types";
 
-export const getProductStart = (id) => ({
-  type: ProductActionTypes.GET_PRODUCT_START
+export const getProductStart = id => ({
+  type: ProductActionTypes.GET_PRODUCT_START,
+  id
 });
 
 export const getProductSuccess = product => ({

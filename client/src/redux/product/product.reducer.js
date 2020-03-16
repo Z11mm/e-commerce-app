@@ -1,7 +1,7 @@
 import ProductActionTypes from "./product.types";
 
 const INITIAL_STATE = {
-  product: null,
+  currentProduct: null,
   isFetching: false,
   error: null
 };
@@ -15,8 +15,8 @@ const productReducer = (state = INITIAL_STATE, action) => {
       };
     case ProductActionTypes.GET_PRODUCT_SUCCESS:
       return {
-        isFetching: false,
-        product: action.payload
+        product: action.payload,
+        isFetching: false  
       };
     case ProductActionTypes.GET_PRODUCT_FAILURE:
       return {

@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { addItemToCart } from "../../redux/cart/cart.actions";
 
@@ -13,17 +13,19 @@ import {
   PriceContainer
 } from "./CollectionItemStyles";
 
-const CollectionItem = ({ item, addItem}) => {
-  const {name, price, imageUrl } = item;
+const CollectionItem = ({ item, addItem }) => {
+  const { id, name, price, imageUrl } = item;
 
   return (
-    <Link to="/product">
+    <Link to={{ pathname: `/product/${id}` }}>
       <CollectionItemContainer>
-        <BackgroundImage
-          className="image"
-          imageUrl={imageUrl}
-        />
-      
+
+          <BackgroundImage
+            className="image"
+            imageUrl={imageUrl}
+            // onClick={() => history.push(`${match.path}/${id}`)}
+          />
+
         <CollectionFooterContainer>
           <NameContainer>{name}</NameContainer>
           <PriceContainer>${price}</PriceContainer>
@@ -32,7 +34,7 @@ const CollectionItem = ({ item, addItem}) => {
           Add to cart
         </AddButton>
       </CollectionItemContainer>
-    </Link>
+    </Link >
   );
 };
 

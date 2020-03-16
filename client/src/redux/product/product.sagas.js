@@ -5,32 +5,26 @@ import {
   getProductFailure
 } from "../product/product.actions";
 
-import ProductActionTypes from '../product/product.types'
+import ProductActionTypes from "../product/product.types";
 
-import {
-  firestore,
-  convertProductSnapshotToMap
-} from "../../firebase/firebase.utils";
+import { firestore } from "../../firebase/firebase.utils";
 
-export function* fetchProductAsync(id) {
+export function* fetchProductAsync() {
   try {
-    const collectionRef = firestore.collection('collections').doc();
+    const collectionRef = firestore.collection("collections").doc("CGb4B5EeLUjiHhi7Hwce");
     const snapshot = yield collectionRef.get();
-    const collectionsMap = yield call(
-      convertProductSnapshotToMap,
-      snapshot
-    );
-    yield put(getProductSuccess(collectionsMap));
+    console.log(snapshot.data());
+    
+    // const productsArray = snapshot.data()
+    // yield put(getProductSuccess(collectionsMap));
   } catch (error) {
-    yield put(getProductFailure(error.message));
+    // yield put(getProductFailure(error.message));
+    console.log(error);
   }
 }
 
 export function* fetchProductStart() {
-  yield takeLatest(
-    ProductActionTypes.GET_PRODUCT_START,
-    fetchProductAsync
-  );
+  yield takeLatest(ProductActionTypes.GET_PRODUCT_START, fetchProductAsync);
 }
 
 export function* productSagas() {

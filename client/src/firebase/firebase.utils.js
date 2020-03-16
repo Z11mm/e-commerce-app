@@ -74,6 +74,13 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
+// export const fetchProduct = () => {
+//   const collectionRef = firestore
+//       .collection("collections/hats");
+//   const snapshot = collectionRef.get();
+//   return snapshot
+// };
+
 export const convertCollectionsSnapshotToMap = collections => {
   const transformedCollection = collections.docs.map(doc => {
     const { title, items } = doc.data();
@@ -91,19 +98,5 @@ export const convertCollectionsSnapshotToMap = collections => {
     return accumulator;
   }, {});
 };
-
-export const convertProductSnapshotToMap = products => {
-  console.log(products)
-  // const transformedCollection = products.items.map(item => {
-  //   console.log(item.data());
-
-  //   return {
-  //     routeName: encodeURI(title.toLowerCase()),
-  //     id: doc.id,
-  //     title,
-  //     items
-  //   };
-  // });
-}
 
 export default firebase;

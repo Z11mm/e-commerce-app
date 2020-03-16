@@ -21,6 +21,7 @@
     "express": "^4.16.4",
     "express-sslify": "^1.2.0",
     "node-sass": "^4.13.1",
+    "react-image-gallery": "^1.0.6",
     "react-scripts": "^3.4.0",
     "stripe": "6.28.0"
   },
