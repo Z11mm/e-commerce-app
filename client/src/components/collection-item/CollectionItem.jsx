@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { addItemToCart } from "../../redux/cart/cart.actions";
+
+import ProductDetails from '../pages/product-details/ProductDetails'
 
 import {
   CollectionItemContainer,
@@ -13,28 +15,30 @@ import {
   PriceContainer
 } from "./CollectionItemStyles";
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, match, history }) => {
+  // console.log(match)
   const { id, name, price, imageUrl } = item;
 
   return (
-    <Link to={{ pathname: `/product/${id}` }}>
-      <CollectionItemContainer>
+    <CollectionItemContainer>
+      <BackgroundImage
+        className="image"
+        imageUrl={imageUrl}
+      />
 
-          <BackgroundImage
-            className="image"
-            imageUrl={imageUrl}
-            // onClick={() => history.push(`${match.path}/${id}`)}
-          />
-
-        <CollectionFooterContainer>
-          <NameContainer>{name}</NameContainer>
-          <PriceContainer>${price}</PriceContainer>
-        </CollectionFooterContainer>
-        <AddButton onClick={() => addItem(item)} inverted>
-          Add to cart
-        </AddButton>
-      </CollectionItemContainer>
-    </Link >
+      <CollectionFooterContainer>
+        <NameContainer>{name}</NameContainer>
+        <PriceContainer>${price}</PriceContainer>
+      </CollectionFooterContainer>
+      <AddButton onClick={() => history.push(`${match.path}/${id}`)} inverted>
+        View Product
+      </AddButton>
+      {/* <Route
+        exact
+        path={`${match.path}/:productId`}
+        component={ProductDetails}
+      /> */}
+    </CollectionItemContainer>
   );
 };
 

@@ -16,7 +16,6 @@ const CollectionPageContainer = lazy(() =>
 );
 
 const ShopPage = ({ fetchCollectionsStart, match, collections }) => {
-  console.log(collections)
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
@@ -34,11 +33,6 @@ const ShopPage = ({ fetchCollectionsStart, match, collections }) => {
             path={`${match.path}/:collectionId`}
             component={CollectionPageContainer}
           />
-          {/* <Route
-            exact
-            path={`${match.path}/:productId`}
-            component={ProductDetails}
-          /> */}
         </Suspense>
       </ErrorBoundary>
     </div>
@@ -46,7 +40,7 @@ const ShopPage = ({ fetchCollectionsStart, match, collections }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  collections: selectCollectionsForPreview
+  collections: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = dispatch => ({
