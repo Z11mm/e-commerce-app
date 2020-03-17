@@ -36,8 +36,8 @@ export const selectCollectionIntoLargeArray = createSelector(
 // filter flattened array for items object
 export const selectItemsObject = createSelector(
   [selectCollectionIntoLargeArray],
-  collection => collection.filter(item => typeof item === 'object')
-)
+  collection => collection.filter(item => typeof item === "object")
+);
 
 // transform filtered items object array into an array of arrays
 export const selectCollectionItemsArray = createSelector(

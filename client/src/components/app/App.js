@@ -16,9 +16,6 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { GlobalStyle } from "../../GlobalStyles";
 
-const ProductDetails = lazy(() =>
-  import("../pages/product-details/ProductDetails")
-);
 const HomePage = lazy(() => import("../pages/homepage/Homepage"));
 const ShopPage = lazy(() => import("../pages/shop/ShopPage"));
 const CheckoutPage = lazy(() => import("../pages/checkout/CheckoutPage"));
@@ -29,10 +26,6 @@ const SignInAndSignUpPage = lazy(() =>
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
-    //   addCollectionAndDocuments(
-    //     "collections",
-    //     SHOP_DATA.map(({ title, items }) => ({ title, items }))
-    //   );
   }, [checkUserSession]);
 
   return (
@@ -45,7 +38,6 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
-            {/* <Route path="/product/:productId" component={ProductDetails} /> */}
             <Route exact path="/signin">
               {currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />}
             </Route>

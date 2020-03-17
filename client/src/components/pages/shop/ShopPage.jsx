@@ -1,10 +1,8 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 
 import { fetchCollectionsStart } from "../../../redux/shop/shop.actions";
-import { selectCollectionsForPreview } from "../../../redux/shop/shoppage.selectors";
 
 import ErrorBoundary from "../../error-boundary/ErrorBoundary";
 
@@ -15,7 +13,7 @@ const CollectionPageContainer = lazy(() =>
   import("../collection/CollectionContainer")
 );
 
-const ShopPage = ({ fetchCollectionsStart, match, collections }) => {
+const ShopPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
@@ -39,12 +37,8 @@ const ShopPage = ({ fetchCollectionsStart, match, collections }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  collections: selectCollectionsForPreview,
-});
-
 const mapDispatchToProps = dispatch => ({
   fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(ShopPage);
