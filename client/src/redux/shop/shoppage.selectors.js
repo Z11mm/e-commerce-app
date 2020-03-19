@@ -54,15 +54,6 @@ export const selectItemsIntoLargeArray = createSelector(
   collections => [].concat(...collections)
 );
 
-// transform flattened array to an object
-// export const selectItemObject = createSelector(
-//   [selectItemsIntoLargeArray],
-//   itemsArray => itemsArray.reduce((obj, item, index) => {
-//     obj[item[index]] = item
-//     return obj
-//   }, {})
-// )
-
 export const selectIsCollectionFetching = createSelector(
   [selectShopPage],
   shoppage => shoppage.isFetching

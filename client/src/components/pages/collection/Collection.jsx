@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import { selectCollection } from "../../../redux/shop/shoppage.selectors";
 
@@ -18,10 +18,11 @@ const CollectionPage = ({ collection, match }) => {
       <h2 className="title">{title}</h2>
       <div className="items">
         {products.map(item => (
-          <CollectionItem key={item.id} item={item} />
+          <Link to={{ pathname: `${match.url}/${item.id}` }} key={item.id}>
+            <CollectionItem key={item.id} item={item} />
+          </Link>
         ))}
       </div>
-      <Route path={`${match.url}/:productId`} component={ProductDetails} />
     </div>
   );
 };
