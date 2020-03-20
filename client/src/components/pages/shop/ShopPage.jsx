@@ -12,8 +12,8 @@ const CollectionOverviewContainer = lazy(() =>
 const CollectionPageContainer = lazy(() =>
   import("../collection/CollectionContainer")
 );
-const ProductDetails = lazy(() =>
-  import("../../pages/product-details/ProductDetails")
+const ProductDetailsContainer = lazy(() =>
+  import("../../pages/product-details/ProductDetailsContainer")
 );
 
 const ShopPage = ({ fetchCollectionsStart, match }) => {
@@ -37,7 +37,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
           />
           <Route
             path={`${match.path}/:collectionId/:productId`}
-            component={ProductDetails}
+            component={ProductDetailsContainer}
           />
         </Suspense>
       </ErrorBoundary>
