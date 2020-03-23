@@ -13,12 +13,15 @@ const ProductDetails = ({ fetchCollectionsStart, match, item }) => {
   const { name, price, imageUrl } = item;
   return (
     <ProductDetailsWrapper>
-      {/* <h2>ProductDetails</h2> */}
       <ProductImage imageUrl={imageUrl} />
       <div>
-        <h2>Product Info:</h2>
-        <p>{name}</p>
-        <p>${price}</p>
+        <h2>{name}</h2>
+        <p>
+          Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Recusandae, impedit? Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quis, fugit.
+        </p>
+        <p>Price: ${price}</p>
       </div>
     </ProductDetailsWrapper>
   );
