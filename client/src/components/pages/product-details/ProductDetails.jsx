@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../../redux/shop/shop.actions";
+import { addItemToCart } from "../../../redux/cart/cart.actions";
 import { selectItem } from "../../../redux/shop/shoppage.selectors";
-import { ProductImage, ProductDetailsWrapper } from "./ProductDetailsStyles";
 
-const ProductDetails = ({ fetchCollectionsStart, match, item }) => {
+import { ProductImage, ProductDetailsWrapper, AddButton } from "./ProductDetailsStyles";
+
+const ProductDetails = ({ fetchCollectionsStart, match, item, addItem }) => {
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
@@ -22,6 +24,9 @@ const ProductDetails = ({ fetchCollectionsStart, match, item }) => {
           adipisicing elit. Quis, fugit.
         </p>
         <p>Price: ${price}</p>
+        <AddButton onClick={() => addItem(item)}>
+          Add To Cart
+        </AddButton>
       </div>
     </ProductDetailsWrapper>
   );
@@ -32,7 +37,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  addItem: item => dispatch(addItemToCart(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
