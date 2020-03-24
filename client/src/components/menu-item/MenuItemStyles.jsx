@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const MenuItemContainer = styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')}
 	min-width: 30%;
-	overflow: hidden;
 	flex: 1 1 auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 0 7.5px 15px;
 	overflow: hidden;
+  border-radius: 5px;
 	&:hover {
 		cursor: pointer;
 		& .background-image {
@@ -49,6 +49,7 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  border-radius: 50%;
 `;
 
 export const ContentTitle = styled.span`

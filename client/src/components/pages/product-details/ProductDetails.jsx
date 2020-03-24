@@ -2,10 +2,15 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../../redux/shop/shop.actions";
-import { addItemToCart } from "../../../redux/cart/cart.actions";
 import { selectItem } from "../../../redux/shop/shoppage.selectors";
 
-import { ProductImage, ProductDetailsWrapper, AddButton } from "./ProductDetailsStyles";
+import ProductInfo from './ProductInfo'
+
+import {
+  ProductImage,
+  ProductDetailsWrapper,
+  AddButton
+} from "./ProductDetailsStyles";
 
 const ProductDetails = ({ fetchCollectionsStart, match, item, addItem }) => {
   useEffect(() => {
@@ -16,18 +21,7 @@ const ProductDetails = ({ fetchCollectionsStart, match, item, addItem }) => {
   return (
     <ProductDetailsWrapper>
       <ProductImage imageUrl={imageUrl} />
-      <div>
-        <h2>{name}</h2>
-        <p>
-          Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Recusandae, impedit? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quis, fugit.
-        </p>
-        <p>Price: ${price}</p>
-        <AddButton onClick={() => addItem(item)}>
-          Add To Cart
-        </AddButton>
-      </div>
+      <ProductInfo item={item} />
     </ProductDetailsWrapper>
   );
 };
@@ -37,8 +31,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
-  addItem: item => dispatch(addItemToCart(item))
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
+  // addItem: item => dispatch(addItemToCart(item)),
+  // removeItem: item => dispatch(removeItem(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

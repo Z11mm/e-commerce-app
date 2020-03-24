@@ -6,7 +6,13 @@ export const ProductDetailsWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   width: 90vw;
   height: 90vh;
-`
+  
+  .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+`;
 
 export const ProductImage = styled.div`
   width: 80%;
@@ -21,8 +27,9 @@ export const ProductImage = styled.div`
 export const AddButton = styled(CustomButton)`
   width: 10%;
   opacity: 0.7;
+  margin-top: 2rem;
 
-  ${'' /* @media screen and (max-width: 800px) {
+  ${"" /* @media screen and (max-width: 800px) {
     display: block;
     opacity: 0.9;
     min-width: unset;

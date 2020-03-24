@@ -8,15 +8,12 @@ import {
   PriceContainer
 } from "./CollectionItemStyles";
 
-const CollectionItem = ({ item, match, history }) => {
+const CollectionItem = ({ item }) => {
   const { name, price, imageUrl } = item;
 
   return (
     <CollectionItemContainer>
-      <BackgroundImage
-        className="image"
-        imageUrl={imageUrl}
-      />
+      <BackgroundImage className="image" imageUrl={imageUrl} />
 
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
