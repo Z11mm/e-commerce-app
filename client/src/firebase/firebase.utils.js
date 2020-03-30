@@ -74,13 +74,6 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-// export const fetchProduct = () => {
-//   const collectionRef = firestore
-//       .collection("collections/hats");
-//   const snapshot = collectionRef.get();
-//   return snapshot
-// };
-
 export const convertCollectionsSnapshotToMap = collections => {
   const transformedCollection = collections.docs.map(doc => {
     const { title, items } = doc.data();
