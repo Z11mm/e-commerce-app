@@ -23,7 +23,7 @@ const SignInAndSignUpPage = lazy(() =>
   import("../pages/sign-in-and-sign-up/SignInAndSignUp")
 );
 
-export const App = ({ checkUserSession, currentUser }) => {
+const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
