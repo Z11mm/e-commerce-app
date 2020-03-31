@@ -1,5 +1,5 @@
 import React from "react";
-import shopActionTypes from "./shop.types";
+import ShopActionTypes from "./shop.types";
 import {
   fetchCollectionsStart,
   fetchCollectionsSuccess,
@@ -9,7 +9,7 @@ import {
 describe("handles fetchCollectionsStart action", () => {
   it("should create an action to start fetch collections", () => {
     const expectedAction = {
-      type: shopActionTypes.FETCH_COLLECTIONS_START
+      type: ShopActionTypes.FETCH_COLLECTIONS_START
     };
     expect(fetchCollectionsStart().type).toEqual(expectedAction.type);
   });
@@ -24,7 +24,7 @@ describe("handles fetchCollectionsSuccess action", () => {
       }
     };
     const action = fetchCollectionsSuccess(mockCollectionsMap);
-    expect(action.type).toEqual(shopActionTypes.FETCH_COLLECTIONS_SUCCESS);
+    expect(action.type).toEqual(ShopActionTypes.FETCH_COLLECTIONS_SUCCESS);
     expect(action.payload).toEqual(mockCollectionsMap);
   });
 });
@@ -33,7 +33,7 @@ describe('handles fetchCollectionsFailure action', () => {
   it("should create an action for when fetch collections fail", () => {
     const errorMessage = 'oops'
     const action = fetchCollectionsFailure(errorMessage)
-    expect(action.type).toEqual(shopActionTypes.FETCH_COLLECTIONS_FAILURE)
+    expect(action.type).toEqual(ShopActionTypes.FETCH_COLLECTIONS_FAILURE)
     expect(action.payload).toEqual(errorMessage)
   })
 })
